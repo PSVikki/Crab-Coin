@@ -1,0 +1,12 @@
+.showcase{
+    background-image: url('../img/showcase-bg.jpg');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    background-position: 0 22%;
+    background-size: cover;
+}
+.ie{
+    .showcase-footer{
+        padding-top: map-get( $spacers, 8) !important;
+    }
+}

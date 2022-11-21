@@ -1,0 +1,46 @@
+/*-----------------------------------------------
+|   Height
+-----------------------------------------------*/
+@each $breakpoint in map_keys($grid-breakpoints) {
+  @include media-breakpoint-up($breakpoint) {
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+
+    @each $prop, $abbrev in (width: w, height: h) {
+      @each $size, $length in $sizes {
+        .#{$abbrev}#{$infix}-#{$size} { #{$prop}: $length !important; }
+      }
+    }
+
+    .minh#{$infix}-100vh{
+      min-height: 100vh;
+    }
+
+    .minh#{$infix}-50vh{
+      min-height: 50vh;
+    }
+
+    .minh#{$infix}-33vh{
+      min-height: 33vh;
+    }
+
+    .minh#{$infix}-25vh{
+      min-height: 25vh;
+    }
+
+    .h#{$infix}-100vh{
+      height: 100vh;
+    }
+
+    .h#{$infix}-50vh{
+      height: 50vh;
+    }
+
+    .h#{$infix}-25vh{
+      height: 25vh;
+    }
+
+    .h#{$infix}-33vh{
+      height: 33.33vh;
+    }
+  }
+}

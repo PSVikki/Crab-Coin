@@ -1,0 +1,67 @@
+#baseContent{
+    transition: left 0.6s ease-in-out;
+    z-index: $zindex-modal;
+    background-color: #fff;
+}
+#gridNav{
+    transition: right 0.6s ease-in-out;
+    z-index: $zindex-modal;
+    padding: 0 $grid-gutter-width/2;
+}
+.sidebar-item-wrapper{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    cursor: pointer;
+    background-color: #222;
+    padding: 0 0.5rem;
+    .bg-holder{
+        transition: transform 0.5s linear;
+        transform: scale(1.05);
+    }
+    &:hover .bg-holder{
+        transform: scale(1.15);
+    }
+}
+.sidebar-item{
+    position: relative;
+    z-index: 99999;
+    text-align: center;
+    .nav-icon{
+        width: 2rem;
+    }
+}
+
+
+@include media-breakpoint-up(xl) {
+    .four-item-one-column .sidebar-item .nav-icon{
+        width: 2.25rem;
+    }
+    .four-item-two-column .sidebar-item .nav-icon{
+        width: 3.13rem;
+    }
+    .six-item-two-column .sidebar-item .nav-icon{
+        width: 2.25rem;
+    }
+    .six-item-three-column .sidebar-item .nav-icon{
+        width: 2.5rem;
+    }
+    .eight-item-four-column .sidebar-item .nav-icon{
+        width: 2.5rem;
+    }
+    
+}
+
+@include media-breakpoint-up(xxl) {
+    #gridNav .sidebar-item .nav-icon{
+        width: 50px;
+    }
+    #gridNav.eight-item-four-column .sidebar-item .nav-icon{
+        width: 3rem;
+    }
+    .sixteen-item-four-column .sidebar-item .nav-fa-icon{
+        width: 1.5rem;
+        height: 1.3rem;
+    }
+}

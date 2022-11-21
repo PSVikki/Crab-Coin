@@ -1,0 +1,67 @@
+.page-title:hover{
+    z-index: 9999;
+}
+.page-title{
+    display: none;
+}
+.page-content{
+    padding-bottom: 8.1rem;
+}
+.sticky-area{
+    cursor: pointer;
+}
+.sticky-area .btn-close .times{
+    transition: transform 0.2s ease-in , opacity 0.2s linear;
+    opacity: 0.5;
+}
+.sticky-area:hover .btn-close .times{
+    transform: scale(1.4);
+    opacity: 1;
+}
+.page-footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    padding: 1.8rem 1rem;
+    overflow: hidden;
+    font-family: $font-family-sans-serif;
+}
+@include media-breakpoint-up(lg) { 
+    .page-title{
+        left: 2rem;
+        bottom: 4rem;
+        margin: 0;
+        writing-mode: vertical-lr;
+        display: block;
+        text-align: right;
+        position: absolute;
+        color: #fff;
+        margin-bottom: 0;
+        font-size: 3.157rem;
+        margin: 0 1rem;
+        z-index: 1050;
+    }
+    .page-content{
+        padding-bottom: 5.72rem;
+    }
+}
+@include media-breakpoint-up(xl) {
+    .page-content{
+        padding-bottom: 4.6rem;
+    }
+}
+@include media-breakpoint-down(md) {
+    #home{
+        overflow-x: hidden;
+    }
+    .one-column-home#home{
+        overflow-x: initial;
+    }
+}
+@include media-breakpoint-down(xs) {
+    .one-column-home#home{
+        overflow-x: hidden;
+    }
+}
