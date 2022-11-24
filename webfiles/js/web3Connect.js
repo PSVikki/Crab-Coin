@@ -252,11 +252,9 @@ function successMessage(text) {
 function ShowUserAddress() {
 	var elem = document.getElementById("userAddress");
 	var elem1 = document.getElementById("userAddress1");
-	var elem2 = document.getElementById("userAddress2");
 	var elem3 = document.getElementById("referralAddress");
 	elem.innerHTML = activeAccount;
 	elem1.innerHTML = activeAccount;
-	elem2.innerHTML = activeAccount;
 	elem3.innerHTML = activeAccount;
 	console.log('Detected Account - ' + activeAccount.toString());
 }

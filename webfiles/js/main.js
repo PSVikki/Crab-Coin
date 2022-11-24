@@ -140,7 +140,7 @@ setInterval(function(){
                  }
                }
                if(userStakeDeposit == 0){
-                 document.getElementById("crabStakingAPY").innerHTML = (4.20).toFixed(2) + "%";
+                 document.getElementById("crabStakingAPY").innerHTML = "4.2%";
                }
                else{
                 var crabPerMinute = (userStakeDeposit / apyAdjust / 1251) * 1;
