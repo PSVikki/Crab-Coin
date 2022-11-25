@@ -21,27 +21,17 @@ setInterval(function(){
     ShowBalance();
   }, 30000);
   
-      /*var xhttp = new XMLHttpRequest();
+    
+
+  async function GetPriceData(){
+    var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = async function() {
         if (this.readyState == 4 && this.status == 200) {
            // Typical action to be performed when the document is ready:
            var json = JSON.parse(xhttp.responseText);
            console.log(json);
-           //eth price in USD
-           var ethUsd = json.ethereum.usd;
-           //total reserves
-           var reserves = await crabLpContract.methods.getReserves().call();
-           //crabPerEth
-           var h = await uniRouter.methods.quote("1000000000000000000", reserves[0], reserves[1]).call();
-  
-           var crabPerEth = web3.utils.fromWei(h);
- 
-        }
-    };
-    xhttp.open("GET", "https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=usd", true);
-    xhttp.send();*/
-  async function GetPriceData(){
-    var crabUsd = 0;
+           var crabUsd = json.price_usd;
+
     var ts = await crabContract.methods.totalSupply().call();
            var tst = await crabContract.methods.balanceOf(crabContractAddress).call();
            //var tst = await crabContract.methods.totalStaked().call();
@@ -51,7 +41,7 @@ setInterval(function(){
            document.getElementById("totalCrabStaked").innerHTML = toFixedMax(web3.utils.fromWei(tst),0) + " CRAB";
            document.getElementById("totalCrabStakedValue").innerHTML = "$" + toFixedMax(web3.utils.fromWei(tst) * crabUsd,2);
            //document.getElementById("priceCounter").setAttribute("data-countup", toFixedMax(crabUsd,2).toString()); 
-           document.getElementById("priceCounter").innerHTML = "$" + toFixedMax(crabUsd,5);
+           document.getElementById("priceCounter").innerHTML = "$" + toFixedMax(crabUsd,6);
            document.getElementById("marketCapCounter").innerHTML = "$" + toFixedMax(web3.utils.fromWei(ts) * crabUsd, 2)
            staker = await crabContract.methods.staker(activeAccount).call();
            var rb = web3.utils.fromWei(staker.totalReferralBonus.toString());
@@ -82,6 +72,11 @@ setInterval(function(){
             document.getElementById("crabStaked2Value").innerHTML = " @ $" + toFixedMax(staked * crabUsd,2);
             document.getElementById("crabStakingRewardsValue").innerHTML = "$" + toFixedMax(claimable * crabUsd,2);
   }
+}
+xhttp.open("GET", "https://api.dev.dex.guru/v1/chain/1/tokens/0x24BCeC1AFda63E622a97F17cFf9a61FFCfd9b735/market", true);
+xhttp.send();
+};
+
   
   function openInNewTab(url) {
     var win = window.open(url, '_blank');
