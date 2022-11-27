@@ -58,14 +58,17 @@
       <!-- End of Preloader ===========================-->
       <div id="errorMsg"></div>
       <div id="successMsg"></div>
-      <div id="budrunAni"><img src="assets/img/crabrun.gif"/></div>
+      <div id="budrunAni"><img style="width:125px" src=""/></div>
       <div class="container justify-content-center" id="connectPopUp">
         <i class="float-left fa fa-2x fa-arrow-circle-left" onclick="CloseConnect()"></i>
         <h4><i class="fa fa-wallet"></i>&nbsp;Connect to use CRAB&nbsp;<i class="fa fa-wallet"></i></h4>
         <br/><br/>
         <div class="row justify-content-center">
           <div class="col-8">
-            <button class="btn btn-block btn-primary" style="background-color:black;" onclick="MetamaskConnect()"><img src="assets/img/mmLogo.png" width="50"/>&nbsp;Metamask</button>
+            <button class="btn btn-block btn-primary" style="background-color:black;" onclick="MetamaskConnect()"><img src="assets/img/mmLogo.png" width="50"/>&nbsp;Metamask</button><br/>
+            <button class="btn btn-block btn-primary" style="background-color:black;" onclick="MetamaskConnect()"><img src="assets/img/cwLogo.jpeg" width="50"/>&nbsp;Coinbase Wallet</button><br/>
+            <button class="btn btn-block btn-primary" style="background-color:black;" onclick="MetamaskConnect()"><img src="assets/img/opLogo.png" width="50"/>&nbsp;Opera</button><br/>
+            <button class="btn btn-block btn-primary" style="background-color:black;" onclick="WalletConnect()"><img src="assets/img/wcLogo.png" width="50"/>&nbsp;Wallet Connect</button><br/>
           </div>
         </div>
     </div>
@@ -98,7 +101,8 @@
                   </li>
                 </ul>
                 <div class="row justify-content-center">
-                  <button id="connectBtn" class="btn btn-block btn-primary col-6" onclick="Connect()">Connect&nbsp;<i class="fa fa-wallet"></i></button>
+                  <button id="connectBtn" class="btn btn-primary col-7" onclick="Connect()">Connect&nbsp;<i class="fa fa-wallet"></i></button><br/>
+                  <button id="disconnectBtn" style="visibility: collapse; position:absolute;" class="btn btn-warning col-7" onclick="Disconnect()">Disconnect&nbsp;<i class="fa fa-wallet"></i></button>
                 </div>
  </div>
             </div>
@@ -184,7 +188,7 @@
                       <div class="col-md-6 pl-3 pl-md-4">
                         <h4>Welcome to the Crab Market...</h4>
                         <p class="lead my-3">
-                          <i class="fa fa-heart"></i>&nbsp;Crab Market is an innovative decentralized platform offering variable yield options. Utilizing a symbiotic relationship between burning and staking through DeFi to maximize growth and sustainability. 
+                          <i class="fa fa-heart"></i>&nbsp;Crab Market is an innovative decentralized platform offering variable yield options. Utilizing a symbiotic relationship between burning, staking and price through DeFi to maximize growth and sustainability. 
                         </p>
                       </div>
                     </div>
@@ -660,8 +664,9 @@
     <script src="assets/lib/isotope-packery/packery-mode.pkgd.min.js"></script>
     <script src="assets/lib/lightbox2/js/lightbox.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
     <script src="js/web3.min.js"></script>
-    <script src="js/web3Connect.js?ver=1.2.3"></script>
+    <script src="js/web3Connect.js?ver=1.2.5"></script>
     <script src="js/main.js?ver=1.4.0"></script>
   </body>
 

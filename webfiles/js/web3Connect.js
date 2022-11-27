@@ -1,12 +1,10 @@
 // JavaScript Document
 var referralAddress = "";
-const infura = "http://mainnet.infura.io/v3/760d4772b1f843eea9f1a82e3ce66d40";
+const infura = "https://mainnet.infura.io/v3/65d2de4060574ab08acb329d1f329e3f";
 
 const donationAddress = "0x8080dbEb46A263f52b616cB69475Ab26Cb29be98";
 const decimals = 18;
-var crabContract;
 
-var crabLpContract;
 const crabContractAddress = "0x24BCeC1AFda63E622a97F17cFf9a61FFCfd9b735";
 var uniCrabEth = '0x90eb30fcb70ba833cb0e7607dd017bc051ddebef';
 
@@ -22,6 +20,10 @@ var account;
 var sendok;
 var accountInterval;
 var web3Found;
+var walletConnectActive;
+
+var crabContract;
+var crabLpContract;
 
 var isDeviceMobile = function () {
 	//check for mobile or desktop
@@ -48,6 +50,7 @@ var checkProvider = function () {
 		return "";
 	}
 }
+
 ///////////////////////////////////////////////////////////////////////
 
 function Connect(){
@@ -56,29 +59,36 @@ function Connect(){
 	document.getElementById("connectBtn").style.visibility = "collapse";
 	document.getElementById("connectBtn2").style.visibility = "collapse";
 	document.getElementById("connectBtn3").style.visibility = "collapse";
-	document.getElementById("connectBtn4").style.visibility = "collapse";
 	$("#connectBtn").fadeOut(1000);
 	$("#connectBtn2").fadeOut(1000);
 	$("#connectBtn3").fadeOut(1000);
-	$("#connectBtn4").fadeOut(1000);
 
 }
 
-function CloseConnect(connected){
+async function CloseConnect(connected){
 	document.getElementById("connectPopUp").style.visibility = "collapse";
 	$("#connectPopUp").fadeOut(1000);
 	if(!connected){
 		document.getElementById("connectBtn").style.visibility = "visible";
 		document.getElementById("connectBtn2").style.visibility = "visible";
 		document.getElementById("connectBtn3").style.visibility = "visible";
-		document.getElementById("connectBtn4").style.visibility = "visible";
 		$("#connectBtn").fadeIn(1000);
 		$("#connectBtn2").fadeIn(1000);
 		$("#connectBtn3").fadeIn(1000);
-		$("#connectBtn4").fadeIn(1000);
-		
+	}
+	else {
+		document.getElementById("disconnectBtn").style.visibility = "visible";
+		document.getElementById("disconnectBtn").style.position = "";
+		$("#disconnectBtn").fadeIn(1000);
 	}
 
+}
+
+async function Disconnect(){
+    if(walletConnectActive){
+		await web3.eth.currentProvider.disconnect();
+	}
+	location.reload();
 }
 
 async function MetamaskConnect() {
@@ -91,15 +101,14 @@ async function MetamaskConnect() {
 		// Modern dapp browsers...
 		if (window.ethereum) {
 			web3 = new Web3(ethereum);
-			crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
-			crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
-			uniRouter = new web3.eth.Contract(UNI_ROUTER_ABI, UNI_ROUTER);
 			console.log("Window ethereum");
 			try {
 				// Request account access if needed
 				ethereum.enable().then(function () {
 					if (!web3Found) {
 						web3Found = true;
+						crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
+						crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
 						console.log("Web3 Found!");
 						console.log(web3.version);
 					}
@@ -113,9 +122,6 @@ async function MetamaskConnect() {
 				if (!web3Found) {
 					web3Found = true;
 					web3 = new Web3(new Web3.providers.HttpProvider(infura));
-					crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
-					crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
-					uniRouter = new web3.eth.Contract(UNI_ROUTER_ABI, UNI_ROUTER);
 					console.error;
 					console.log("Defaulting to infura for view only");
 					errorMessage("Failed to connect to your wallet, allow access to use <b>crab</b>.finance");
@@ -126,12 +132,11 @@ async function MetamaskConnect() {
 		// Legacy dapp browsers...
 		else if (window.web3) {
 			web3 = new Web3(window.web3.currentProvider);
-			crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
-			crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
-			uniRouter = new web3.eth.Contract(UNI_ROUTER_ABI, UNI_ROUTER);
 			console.log(web3.currentProvider);
 			if (!web3Found) {
 				web3Found = true;
+				crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
+				crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
 				console.log("Web3 Found!");
 				console.log(web3.version);
 				CloseConnect(true);
@@ -152,10 +157,34 @@ async function MetamaskConnect() {
 	} else { //no web3 provider found
 		if (!web3Found) {
 			web3Found = true;
-			errorMessage("No wallet found, please try with a compatible dapp browser.");
 			console.log("Defaulting to infura for view only");
 		}
 	}
+}
+
+async function WalletConnect(){
+	  //An infura ID, or custom ETH node is required for Ethereum, for Binance Smart Chain you can just use their public endpoint
+	  var provider = new WalletConnectProvider.default(
+		{ 
+		  infuraId: "65d2de4060574ab08acb329d1f329e3f", 
+		});
+	  //present the Wallet Connect QR code
+	  provider.enable().then(function(res){ 
+		//get wallet addrs and then wrap this into the Web3 JS
+		web3 = new Web3(provider);
+		if(!web3Found){
+			web3Found = true;
+			walletConnectActive = true;
+			crabContract = new web3.eth.Contract(crabAbi, crabContractAddress);
+			crabLpContract = new web3.eth.Contract(univ2Abi, uniCrabEth);
+			console.log("Web3 Found!");
+			console.log(web3.version);
+			CloseConnect(true);
+			CheckAccount();
+			CheckNetwork();
+		}
+
+	});
 }
 
 function CheckAccount() {

@@ -25,7 +25,7 @@
   -webkit-animation: bud-run 37s linear infinite;
   animation: bud-run 37s linear infinite;
   position: fixed;
-  bottom:0px;
+  bottom:-0px;
   left:-2625px;
   z-index: 9999;
  }
