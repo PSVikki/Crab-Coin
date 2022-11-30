@@ -76,7 +76,7 @@
       <!-- <section> begin ============================-->
       <section class="p-0" id="home">
         <div style="z-index:9999; position:absolute; top:0px; left:0px; width:100%; height:40px;">
-          <coingecko-coin-price-marquee-widget  coin-ids="ethereum, hex" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
+          <coingecko-coin-price-marquee-widget  coin-ids="ethereum, hex, crab-market" currency="usd" background-color="#ffffff" locale="en"></coingecko-coin-price-marquee-widget>
       </div>
       <div style="z-index:9999; background-color:rgba(255,255,255,255); position: absolute; top:40px; left:0px; width:100%; box-shadow: 0px 2px 5px 0px black;">
         <b id="refLinkInfo" style="color:black; margin-left:10px; text-align:left; float:left;"><i class="fa fa-users"></i>&nbsp;Your Referral Link: https://crab.finance/?r=<span class="addressBreak" id="referralAddress">YOUR_WALLET_ADDRESS</span></b>
@@ -95,6 +95,9 @@
                   </li>
                   <li class="list-inline-item">
                     <a class="text-700 mx-2" href="https://twitter.com/crabmarketcoin" target="_blank"> <span class="fab fa-twitter socialIcon"></span></a>
+                  </li>
+                  <li class="list-inline-item">
+                    <a class="text-700 mx-2" href="https://medium.com/@crabmarket/" target="_blank"> <span class="fab fa-medium socialIcon"></span></a>
                   </li>
                   <li class="list-inline-item">
                     <a class="text-700 mx-2" href="https://github.com/getshwiftyinhere/crab-market" target="_blank"> <span class="fab fa-github socialIcon"></span></a>
@@ -199,13 +202,13 @@
                         <i>Here's how things work...</i><br/><br/>
                         <ul>
                           <li>
-                            <i style="width:25px;" class="fa fa-lock"></i>&nbsp;<b>Staking CRAB in the stake pool accrues interest at a minimum of 4.20% APY</b>, paid in CRAB. Staking uses a minimum 7 day staking period from your most recent stake, claim or roll. Claim accrued interest at any point throughout the duration of your stake.
+                            <i style="width:25px;" class="fa fa-lock"></i>&nbsp;<b>Staking CRAB in the stake pool accrues interest at a minimum of 4.20% APY</b>, paid in CRAB. Staking has a minimum 7 day staking period from your most recent stake, claim or roll. Claim accrued interest at any point throughout the duration of your stake.
                           </li><br/>
                           <li>
                             <i style="width:25px;" class="fa fa-burn"></i>&nbsp;<b>Burning CRAB pumps the price and maximizes staking returns.</b> CRAB achieves this by automatically burning a copy of the amount burnt in the CRAB/ETH Uniswap v2 pair. This increases price alongside using your burnt amount as a metric to calculate your individual staking APY up to a maximum of 10x (42.0%), achieve max staking APY by burning a total of 90% of your staked balance!
                           </li><br/>
                           <li>
-                            <i style="width:25px;" class="fa fa-users"></i>&nbsp;<b>Referring users to Crab Market rewards you</b>, 5% copy of your referrals staking interest forever. A referrer must have used the platform in the past before referrering others (e.g. staking). Users cannot self refer. 
+                            <i style="width:25px;" class="fa fa-users"></i>&nbsp;<b>Referring users to Crab Market rewards you</b>, enjoy a 5% copy of your referrals staking interest forever. A referrer must have used the platform in the past before referrering others (e.g. staking). Users cannot self refer. A 3% copy of staking interest is also allocated to developer. 
                           </li><br/>
                           <li>
                             <i style="width:25px;" class="fa fa-key"></i>&nbsp;<b>100% of initial liquidity is locked for 6 months.</b> We aim for sustainability and high gains, while maintaining community trust.
@@ -244,6 +247,8 @@
                   </div>
                 </div>
                 <hr class="hr-ornate col-8 col-md-9 col-xl-8 col-xxl-6">
+
+<coingecko-coin-price-chart-widget currency="usd" coin-id="crab-market" locale="en" height="300"></coingecko-coin-price-chart-widget>
               </div>
               <!-- end of .container-->
               <div class="row justify-content-center pt-4">
@@ -664,6 +669,7 @@
     <script src="assets/lib/isotope-packery/packery-mode.pkgd.min.js"></script>
     <script src="assets/lib/lightbox2/js/lightbox.js"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="https://widgets.coingecko.com/coingecko-coin-price-chart-widget.js"></script>
     <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/web3Connect.js?ver=1.2.5"></script>
