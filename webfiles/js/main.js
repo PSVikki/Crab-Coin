@@ -19,7 +19,7 @@ setInterval(function(){
     GetPriceData();
     GetAPYData();
     ShowBalance();
-  }, 30000);
+  }, 15000);
   
     
 
@@ -73,7 +73,7 @@ setInterval(function(){
             document.getElementById("crabStakingRewardsValue").innerHTML = "$" + toFixedMax(claimable * crabUsd,2);
   }
 }
-xhttp.open("GET", "https://api.dev.dex.guru/v1/chain/1/tokens/0x24BCeC1AFda63E622a97F17cFf9a61FFCfd9b735/market", true);
+xhttp.open("GET", "https://api.dev.dex.guru/v1/chain/1/tokens/0x24BCeC1AFda63E622a97F17cFf9a61FFCfd9b735/market/?api-key=tYi8HJG9uFabo9WPz09bZrQfh1PEDnU2UxTR1VlnYC0", true);
 xhttp.send();
 };
 
