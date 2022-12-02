@@ -19,7 +19,7 @@ setInterval(function(){
     GetPriceData();
     GetAPYData();
     ShowBalance();
-  }, 15000);
+  }, 100000);
   
     
 
@@ -176,6 +176,9 @@ xhttp.send();
       })
       .on('receipt', function (receipt) {
         successMessage("CRAB staked successfully!");
+        GetPriceData();
+        GetAPYData();
+        ShowBalance();
         console.log(receipt);
       })
       .on('error', function (error){
@@ -203,6 +206,9 @@ xhttp.send();
         })
       .on('receipt', function (receipt) {
         successMessage("Successfully unstaked CRAB");
+        GetPriceData();
+        GetAPYData();
+        ShowBalance();
         console.log(receipt);
       })
       .on('error', function () {
@@ -223,6 +229,9 @@ xhttp.send();
         })
       .on('receipt', function (receipt) {
         successMessage("Successfully claimed staking interest in CRAB");
+        GetPriceData();
+        GetAPYData();
+        ShowBalance();
         console.log(receipt);
       })
       .on('error', function () {
@@ -242,6 +251,9 @@ xhttp.send();
         })
       .on('receipt', function (receipt) {
         successMessage("Successfully rolled staking interest.");
+        GetPriceData();
+        GetAPYData();
+        ShowBalance();
         console.log(receipt);
       })
       .on('error', function () {
@@ -280,6 +292,9 @@ xhttp.send();
       })
       .on('receipt', function (receipt) {
         successMessage("CRAB burnt successfully!");
+        GetPriceData();
+        GetAPYData();
+        ShowBalance();
         console.log(receipt);
       })
       .on('error', function (error){
