@@ -191,7 +191,7 @@
                       <div class="col-md-6 pl-3 pl-md-4">
                         <h4>Welcome to the Crab Market...</h4>
                         <p class="lead my-3">
-                          <i class="fa fa-heart"></i>&nbsp;Crab Market is an innovative decentralized platform offering variable yield options. Utilizing a symbiotic relationship between burning, staking and price through DeFi to maximize growth and sustainability. 
+                          <i class="fa fa-heart"></i>&nbsp;Crab Market is an innovative decentralized platform offering variable yield options. Utilizing a symbiotic relationship between burning, staking and price through DeFi to maximize growth and sustainability.<br/>Fully audited by Techrate : <a href="assets/docs/Crab Market Full Smart Contract Security Audit.pdf" target="_blank">Crab Market Audit</a>
                         </p>
                       </div>
                     </div>
@@ -202,7 +202,7 @@
                         <i>Here's how things work...</i><br/><br/>
                         <ul>
                           <li>
-                            <i style="width:25px;" class="fa fa-lock"></i>&nbsp;<b>Staking CRAB in the stake pool accrues interest at a minimum of 4.20% APY</b>, paid in CRAB. Staking has a minimum 7 day staking period from your most recent stake, claim or roll. Claim accrued interest at any point throughout the duration of your stake.
+                            <i style="width:25px;" class="fa fa-lock"></i>&nbsp;<b>Staking CRAB in the stake pool accrues interest at a minimum of 4.20% APY</b>, paid in CRAB. Staking has a minimum 7 day locked staking period from your most recent stake, claim or roll. Claim accrued interest at any point throughout the duration of your stake.
                           </li><br/>
                           <li>
                             <i style="width:25px;" class="fa fa-burn"></i>&nbsp;<b>Burning CRAB pumps the price and maximizes staking returns.</b> CRAB achieves this by automatically burning a copy of the amount burnt in the CRAB/ETH Uniswap v2 pair. This increases price alongside using your burnt amount as a metric to calculate your individual staking APY up to a maximum of 10x (42.0%), achieve max staking APY by burning a total of 90% of your staked balance!
@@ -437,7 +437,7 @@
                     <hr class="hr-ornate col-8 col-md-9 col-xl-8 col-xxl-6">
                     <div style="padding:10px;" class="row justify-content-center">
                         <h4 style="text-align:right; width:100%"><img src="assets/img/crab-icon.png" style="width:25px; transform: translate(0px,-3px);"/> CRAB Staking&nbsp;<i class="fa fa-lock"></i></h4><br/><br/>
-                        <p style="width:100%; text-align: right;"><i class="fa fa-coins"></i>&nbsp;Stake CRAB to increase your position and <b>earn CRAB passively</b><br/><b><i class="fa fa-seedling"></i>&nbsp;7 day min stake period</b>, your most recent stake/claim/roll resets the period.</p>
+                        <p style="width:100%; text-align: right;"><i class="fa fa-coins"></i>&nbsp;Stake CRAB to increase your position and <b>earn CRAB passively</b><br/><b><i class="fa fa-lock"></i>&nbsp;7 day stake lock period</b> - your most recent stake/claim/roll resets the period.</p>
                         <div class="col-12 col-md-6">
                           <img src="assets/img/crabGrow2.png" style="width:100%; max-width: 100%; transform: translate(0px,0px);" alt="">
                           <ul>
@@ -459,8 +459,8 @@
 
                         </div>
                       <div style="border:solid lightgrey 5px; padding:15px; margin-bottom:30px" class="col-12 col-md-6">
-                        <span>Your current APY @ <span id="crabStakingAPY"></span></span><br>
-                        <span>Time till available: <span id="crabStakingDaysLeft">N/A</span></span><br/><br/>
+                        <span>Your current APY @ <span style="font-size:large; font-weight: 700;" id="crabStakingAPY"></span></span><br>
+                        <span>Lock period: <span style="font-weight: 700;" id="crabStakingDaysLeft">N/A</span></span><br/><br/>
                         <form class="zform">
                           <div class="form-group text-left">
                             <i class="fa fa-wallet"></i> Wallet: <span id="userAddress1">N/A</span><br/>
@@ -674,7 +674,7 @@
     <script src="https://unpkg.com/@walletconnect/web3-provider@1.7.8/dist/umd/index.min.js"></script>
     <script src="js/web3.min.js"></script>
     <script src="js/web3Connect.js?ver=1.2.5"></script>
-    <script src="js/main.js?ver=1.4.3"></script>
+    <script src="js/main.js?ver=1.4.4"></script>
   </body>
 
 </html>

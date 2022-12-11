@@ -100,7 +100,7 @@ xhttp.send();
     }
     else{
       if(secondsTill <= 0){
-        document.getElementById("crabStakingDaysLeft").innerHTML = "Finished!";
+        document.getElementById("crabStakingDaysLeft").innerHTML = "Unlocked";
       }
       else{
         var minutesTill = secondsTill / 60;
